@@ -1,5 +1,6 @@
 'use client'
 import {gql, useQuery} from "@apollo/client";
+import {Heading} from "@/app/custom-components/Text";
 
 type Props = {
     params: {
@@ -91,27 +92,33 @@ export default function StationDetail({ params }: Props){
 
     return(
         <div>
-            <h1>Station {station.id} details</h1>
-            <h1>{station.name}</h1>
-            <h1>{station.address}</h1>
-            <h1>{station.city}</h1>
-            <h1>{station.state}</h1>
+            <Heading className="bg-customGreen p-4">Station {station.id} details</Heading>
+            <Heading as='h2' className="p-4">{station.name}</Heading>
+            <Heading as='h4' className="ml-4">{station.address}</Heading>
+            <Heading as='h4' className="ml-4">{station.city}, {station.state}</Heading>
 
-            <p>Operating Hours: {station.operatingHours.alwaysOpen ? 'Always Open' : 'Specific Hours'}</p>
-            {station.operatingHours.openingDays && (
+            <Heading as='h6' className="ml-4">Operating Hours: {station.operatingHours.alwaysOpen
+                ? 'Always Open'
+                : 'Specific Hours'}
+            </Heading>
+            {station.operatingHours.openingDays ? (
                 <ul>
                     {station.operatingHours.openingDays.map((day: any, index: number) => (
-                        <li key={index}>{day.day}: {day.startTime} - {day.endTime}</li>
+                        <li key={index}>
+                            <Heading as='h6' className="ml-4">
+                                {day.day}: {day.startTime} - {day.endTime}
+                            </Heading>
+                        </li>
                     ))}
                 </ul>
-            )}
+            ) : null}
 
-            <p className='mb-8'>Available Charge Points: {station.total.aggregate.count}</p>
+            <Heading as='h4' className='ml-4 mb-8'>Available Charge Points: {station.total.aggregate.count}</Heading>
 
             {station.chargePoints.map((chargePoint: any) => (
-                <div key={chargePoint.id} className="mb-8">
-                    <h2 className="text-xl font-bold mb-4">Charge Point ID: {chargePoint.id}</h2>
-                    <table className="min-w-full max-h-screen bg-white border border-gray-200">
+                <div key={chargePoint.id} className="overflow-auto max-h-screen p-4">
+                    <Heading as='h2' className="text-xl font-bold ml-4 mb-4">Charge Point ID: {chargePoint.id}</Heading>
+                    <table className="min-w-full bg-customGreen border-hidden border-gray-200 rounded-custom">
                         <thead>
                         <tr>
                             <th className="px-4 py-2 border border-gray-200">Connector ID</th>
