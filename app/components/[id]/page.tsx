@@ -118,7 +118,7 @@ export default function StationDetail({ params }: Props){
             {station.chargePoints.map((chargePoint: any) => (
                 <div key={chargePoint.id} className="overflow-auto max-h-screen p-4">
                     <Heading as='h2' className="text-xl font-bold ml-4 mb-4">Charge Point ID: {chargePoint.id}</Heading>
-                    <table className="min-w-full bg-customGreen border-hidden border-gray-200 rounded-custom">
+                    <table className="min-w-full bg-customGreen border-hidden border-gray-200 rounded-custom transform hover:scale-25 transition duration-75">
                         <thead>
                         <tr>
                             <th className="px-4 py-2 border border-gray-200">Connector ID</th>

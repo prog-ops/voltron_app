@@ -25,6 +25,14 @@ const config: Config = {
       borderRadius: {
         'custom': '10px',
       },
+      scale: {
+        '25': '1.02', // Add custom scale for 25%
+      },
+    },
+  },
+  variants: {
+    extend: {
+      scale: ['hover'], // Enable scale on hover
     },
   },
   plugins: [],

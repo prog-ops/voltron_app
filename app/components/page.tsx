@@ -69,16 +69,16 @@ export default function Main() {
     return (
         <div>
             {chargeStations?.map((chargeStation: any) => (
-                <div className='bg-customGreen mb-4 p-4'>
-                    <Link
-                        key={chargeStation.id} // not stationId
-                        href={`components/${chargeStation.id}`}
-                    >
+                <Link
+                    key={chargeStation.id} // not stationId
+                    href={`components/${chargeStation.id}`}
+                >
+                <div className='bg-customGreen mb-4 p-4 rounded-custom border border-white transform hover:scale-25 transition duration-75'>
                         <h1>{chargeStation.id} {chargeStation.name}</h1>
-                    </Link>
 
-                    <p>Address: {chargeStation.address}, {chargeStation.city}, {chargeStation.state}, {chargeStation.postalCode}</p>
+                    <p>Address: {chargeStation.address}</p>
                 </div>
+                </Link>
             ))}
         </div>
     );
