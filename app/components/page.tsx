@@ -1,4 +1,6 @@
+'use client'
 import {gql, useQuery} from "@apollo/client";
+import Link from "next/link";
 
 const GET_CHARGE_STATION = gql`
     query GetChargeStation($limit: Int, $offset: Int) {
@@ -54,8 +56,8 @@ const GET_CHARGE_STATION = gql`
 `;
 
 export default function Main() {
-    const { loading, error, data } = useQuery(GET_CHARGE_STATION, {
-        variables: { limit: 15, offset: 1 },
+    const {loading, error, data} = useQuery(GET_CHARGE_STATION, {
+        variables: {limit: 15, offset: 1},
     });
 
     if (loading) return <p>Loading...</p>;
@@ -68,8 +70,13 @@ export default function Main() {
         <div>
             <p>List Charge Stations name</p>
 
-            {chargeStations?.map((post: any) => (
-                <p>{post.name}</p>
+            {chargeStations?.map((chargeStation: any) => (
+                <Link
+                    key={chargeStation.id} // not stationId
+                    href={`components/${chargeStation.id}`}
+                >
+                    <h1>{chargeStation.id} {chargeStation.name}</h1>
+                </Link>
             ))}
         </div>
     );
