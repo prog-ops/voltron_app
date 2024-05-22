@@ -95,7 +95,6 @@ export default function StationDetail({ params }: Props){
             <Heading className="bg-customGreen p-4">Station {station.id} details</Heading>
             <Heading as='h2' className="p-4">{station.name}</Heading>
             <Heading as='h4' className="ml-4">{station.address}</Heading>
-            <Heading as='h4' className="ml-4">{station.city}, {station.state}</Heading>
 
             <Heading as='h6' className="ml-4">Operating Hours: {station.operatingHours.alwaysOpen
                 ? 'Always Open'
