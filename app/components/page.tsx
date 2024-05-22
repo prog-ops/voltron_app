@@ -68,15 +68,17 @@ export default function Main() {
 
     return (
         <div>
-            <p>List Charge Stations name</p>
-
             {chargeStations?.map((chargeStation: any) => (
-                <Link
-                    key={chargeStation.id} // not stationId
-                    href={`components/${chargeStation.id}`}
-                >
-                    <h1>{chargeStation.id} {chargeStation.name}</h1>
-                </Link>
+                <div className='bg-customGreen mb-4 p-4'>
+                    <Link
+                        key={chargeStation.id} // not stationId
+                        href={`components/${chargeStation.id}`}
+                    >
+                        <h1>{chargeStation.id} {chargeStation.name}</h1>
+                    </Link>
+
+                    <p>Address: {chargeStation.address}, {chargeStation.city}, {chargeStation.state}, {chargeStation.postalCode}</p>
+                </div>
             ))}
         </div>
     );
