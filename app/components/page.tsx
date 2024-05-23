@@ -1,6 +1,7 @@
 'use client'
 import {gql, useQuery} from "@apollo/client";
 import Link from "next/link";
+import {Heading} from "@/app/custom-components/Text";
 
 const GET_CHARGE_STATION = gql`
     query GetChargeStation($limit: Int, $offset: Int) {
@@ -73,11 +74,12 @@ export default function Main() {
                     key={chargeStation.id} // not stationId
                     href={`components/${chargeStation.id}`}
                 >
-                <div className='bg-customGreen mb-4 p-4 rounded-custom border border-white transform hover:scale-25 transition duration-75'>
-                        <h1>{chargeStation.id} {chargeStation.name}</h1>
-
-                    <p>Address: {chargeStation.address}</p>
-                </div>
+                    <div
+                        className='bg-customGreen mb-4 pt-2 pb-6 ps-8 pe-8 rounded-custom border border-white transform hover:scale-25 transition duration-75'>
+                        <Heading as='h2' className='mb-2 mt-2'>{chargeStation.name}</Heading>
+                        <Heading as='h4' className='mb-2'>{chargeStation.address}</Heading>
+                        <Heading as='h6' className='text-gray-500'>{chargeStation.id}</Heading>
+                    </div>
                 </Link>
             ))}
         </div>
