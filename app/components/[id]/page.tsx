@@ -125,6 +125,7 @@ export default function StationDetail({ params }: Props){
                             <th className="px-4 py-2 border border-gray-200">Max Power (kW)</th>
                             <th className="px-4 py-2 border border-gray-200">Available</th>
                             <th className="px-4 py-2 border border-gray-200">Tariff Price per kWh</th>
+                            <th className="px-4 py-2 border border-gray-200">Tax Amount</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -133,8 +134,9 @@ export default function StationDetail({ params }: Props){
                                 <td className="px-4 py-2 border border-gray-200">{connector.id}</td>
                                 <td className="px-4 py-2 border border-gray-200">{connector.enumConnector.type}</td>
                                 <td className="px-4 py-2 border border-gray-200">{connector.maxPower} kW</td>
-                                <td className="px-4 py-2 border border-gray-200">{connector.available ? "Yes" : "No"}</td>
+                                <td className="px-4 py-2 border border-gray-200">{connector.available ? "✔️" : "-"}</td>
                                 <td className="px-4 py-2 border border-gray-200">{connector.tariff.priceKwh} {connector.tariff.currencyId}</td>
+                                <td className="px-4 py-2 border border-gray-200">{connector.tariff.tax.amount}</td>
                             </tr>
                         ))}
                         </tbody>
