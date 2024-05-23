@@ -114,6 +114,10 @@ export default function StationDetail({ params }: Props){
 
             <Heading as='h4' className='ml-4 mb-8'>Available Charge Points: {station.total.aggregate.count}</Heading>
 
+            {station.chargePoints.length == 0 ??
+                <Heading as='h2' className='justify-center align-middle text-orange-500'>
+                No data</Heading>
+            }
             {station.chargePoints.map((chargePoint: any) => (
                 <div key={chargePoint.id} className="overflow-auto max-h-screen p-4">
                     <Heading as='h2' className="text-xl font-bold ml-4 mb-4">Charge Point ID: {chargePoint.id}</Heading>
@@ -143,7 +147,6 @@ export default function StationDetail({ params }: Props){
                     </table>
                 </div>
             ))}
-
         </div>
     )
 }
