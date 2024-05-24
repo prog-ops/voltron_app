@@ -7,7 +7,7 @@ const MainTitle = () => {
 
     return (
         <div className="mx-auto px-4 md:text-red-200 lg:text-customGreen mb-10 flex justify-between items-center">
-            <Heading as='h1' className="text-2xl md:text-4xl lg:text-6xl">
+            <Heading as='h1' className="text-2xl md:text-4xl lg:text-6xl dark:text-orange-500">
                 Charge Stations
             </Heading>
             <button

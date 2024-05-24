@@ -91,12 +91,12 @@ export default function StationDetail({ params }: Props){
     if (!station) return <p>No station data found.</p>;
 
     return(
-        <div>
+        <div className='bg-gray-100 dark:bg-gray-700'>
             <Heading className="bg-customGreen p-4">Station {station.id} details</Heading>
-            <Heading as='h2' className="p-4">{station.name}</Heading>
-            <Heading as='h4' className="ml-4">{station.address}</Heading>
+            <Heading as='h2' className="p-4 text-black dark:text-white">{station.name}</Heading>
+            <Heading as='h4' className="ml-4 text-black dark:text-white">{station.address}</Heading>
 
-            <Heading as='h6' className="ml-4">Operating Hours: {station.operatingHours.alwaysOpen
+            <Heading as='h6' className="ml-4 text-black dark:text-white">Operating Hours: {station.operatingHours.alwaysOpen
                 ? 'Always Open'
                 : 'Specific Hours'}
             </Heading>
@@ -104,7 +104,7 @@ export default function StationDetail({ params }: Props){
                 <ul>
                     {station.operatingHours.openingDays.map((day: any, index: number) => (
                         <li key={index}>
-                            <Heading as='h6' className="ml-4">
+                            <Heading as='h6' className="ml-4 text-black dark:text-white">
                                 {day.day}: {day.startTime} - {day.endTime}
                             </Heading>
                         </li>
@@ -112,15 +112,15 @@ export default function StationDetail({ params }: Props){
                 </ul>
             ) : null}
 
-            <Heading as='h4' className='ml-4 mb-8'>Available Charge Points: {station.total.aggregate.count}</Heading>
+            <Heading as='h4' className='ml-4 mb-8 text-black dark:text-white'>Available Charge Points: {station.total.aggregate.count}</Heading>
 
             {station.chargePoints.length == 0 ??
-                <Heading as='h2' className='justify-center align-middle text-orange-500'>
+                <Heading as='h2' className='justify-center align-middle text-orange-500 dark:text-white'>
                 No data</Heading>
             }
             {station.chargePoints.map((chargePoint: any) => (
                 <div key={chargePoint.id} className="overflow-auto max-h-screen p-4">
-                    <Heading as='h2' className="text-xl font-bold ml-4 mb-4">Charge Point ID: {chargePoint.id}</Heading>
+                    <Heading as='h2' className="text-xl font-bold ml-4 mb-4 text-black dark:text-white">Charge Point ID: {chargePoint.id}</Heading>
                     <table className="min-w-full bg-customGreen border-hidden border-gray-200 rounded-custom transform hover:scale-25 transition duration-75">
                         <thead>
                         <tr>
