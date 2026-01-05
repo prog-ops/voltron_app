@@ -1,5 +1,7 @@
 # EV Charging Infrastructure Dashboard
 
+[Uploading voltron1.mp4…](https://github.com/prog-ops/voltron_app/assets/59245989/19a0657e-125d-4c50-85b1-2bea5349e153)
+
 ## 📖 Executive Summary & Business Value
 
 EV Charging Infrastructure Dashboard is a next-generation frontend application designed to bridge the gap between Electric Vehicle (EV) drivers and charging infrastructure. As the global transition to sustainable transportation accelerates, "Range Anxiety" and "Charging Uncertainty" remain significant barriers to adoption.
